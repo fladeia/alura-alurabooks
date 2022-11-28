@@ -1,5 +1,5 @@
 export function App() {
   return (
-    <h1>Base Project</h1>
+    <h1>Alurabooks</h1>
   )
 }
