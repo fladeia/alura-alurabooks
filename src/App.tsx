@@ -2,10 +2,12 @@ import { BookCard } from "./components/BookCard";
 import { BookFormat } from "./components/BookFormat";
 import { Button } from "./components/Button";
 import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 
 export function App() {
   return (
     <div className="h-screen flex flex-col items-start gap-4">
+      <Header />
       <Button
         // secondary
         // small
