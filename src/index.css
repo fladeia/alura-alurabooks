@@ -19,3 +19,15 @@
 body {
   min-height: 100vh;
 }
+
+@layer components {
+  footer ul li {
+    @apply flex items-center gap-2 mb-4;
+  }
+  footer strong {
+    @apply block text-gray-500 font-normal uppercase mb-8;
+  }
+  footer span {
+    @apply text-gray-700 text-sm;
+  }
+}

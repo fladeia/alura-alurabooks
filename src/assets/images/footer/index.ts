@@ -1,0 +1,18 @@
+import alura from './alura.svg'
+import aluraEmpresas from './aluraEmpresa.svg'
+import aluraLatam from './aluraLatam.svg'
+import aluraLinguas from './aluraLinguas.svg'
+import aluraStart from './aluraStart.svg'
+import caelum from './caelum.svg'
+import carreiraSemFonteira from './carreiraSemFonteira.svg'
+import casaDoCodigo from './casaDoCodigo.svg'
+import guj from './guj.svg'
+import hipsters from './hipsters.svg'
+import hipstersJobs from './hipstersJobs.svg'
+import layersTech from './layersTech.svg'
+import likeBoss from './likeBoss.svg'
+import musicDot from './musicDot.svg'
+import pm3 from './pm3.svg'
+import scubaDev from './scubaDev.svg'
+
+export {alura, aluraEmpresas, aluraLatam, aluraLinguas, aluraStart , caelum, carreiraSemFonteira, casaDoCodigo, guj, hipsters, hipstersJobs, layersTech, likeBoss, musicDot, pm3, scubaDev}

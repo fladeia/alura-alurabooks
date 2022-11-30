@@ -1,6 +1,7 @@
 import { BookCard } from "./components/BookCard";
 import { BookFormat } from "./components/BookFormat";
 import { Button } from "./components/Button";
+import { Footer } from "./components/Footer";
 
 export function App() {
   return (
@@ -26,6 +27,7 @@ export function App() {
         selectedBag={false}
         selectedFavorite={false}
       />
+      <Footer />
     </div>
   )
 } 

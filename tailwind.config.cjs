@@ -2,6 +2,10 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      tablet: '1024px',
+      desktop: '1728px'
+    },
     fontFamily: {
       sans: 'Poppins, sans-serif'
     },
@@ -16,6 +20,10 @@ module.exports = {
       },
       brown: {
         500: '#B87900'
+      },
+      gray: {
+        500: '#858585',
+        700: '#474646'
       },
       orange: {
         500: '#EB9B00'
