@@ -5,7 +5,7 @@ import { LoginStatus } from '../../share/Interface/login'
 
 export const Header = ({login}: LoginStatus) => {
   return (
-    <header className='w-full max-w-[1728px] flex items-center justify-between px-10 tablet:px-20 py-6 m-auto'>
+    <header className='w-full h-20 max-w-[1728px] flex items-center justify-between px-10 mx-auto tablet:px-20 py-6'>
       <div className='flex items-center gap-2'>
         <Logo />
         <Menu login={login}/>

@@ -30,7 +30,11 @@ module.exports = {
         500: '#EB9B00'
       }
     },
-    extend: {}
+    extend: {
+      backgroundImage: {
+        'main-bg': "url('./src/assets/images/mainBg.png')"
+      }
+    }
   },
   plugins: []
 }

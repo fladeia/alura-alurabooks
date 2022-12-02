@@ -3,14 +3,15 @@ import { BookFormat } from "./components/BookFormat";
 import { Button } from "./components/Button";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Main } from "./components/Main";
 
 export function App() {
-  let login = false
+  let login = true
 
   return (
-    <div className="h-screen flex flex-col items-start gap-4">
+    <div className="h-screen flex flex-col">
       <Header login={login} />
-      <Button
+      {/* <Button
         // secondary
         // small
       >
@@ -30,7 +31,8 @@ export function App() {
         bookPrice='29,90' // conforme o formato escolhido
         selectedBag={false}
         selectedFavorite={false}
-      />
+      /> */}
+      <Main />
       <Footer />
     </div>
   )

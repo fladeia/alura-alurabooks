@@ -3,8 +3,8 @@ import * as icon from '../../assets/images/footer/index'
 export const Footer = () => {
   return (
     <footer className='w-full p-14 tablet:m-auto border-t-2 border-t-gray-500 bg-gray-100'>
-      <div className='flex tablet:max-w-5xl desktop:max-w-[1728px] m-auto'>
-        <div className='flex-1'>Grupo Alura</div>
+      <div className='flex  desktop:max-w-[1384px] m-auto'>
+        <div className='flex-1 text-2xl uppercase'>Grupo Alura</div>
         <div className='hidden tablet:flex flex-col flex-1 border-l-2 border-l-gray-500 pl-5'>
           <strong>Educação</strong>
           <ul>
