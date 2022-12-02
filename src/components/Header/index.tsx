@@ -1,32 +1,16 @@
-import logo from '../../assets/images/logo.svg'
-import aluraBooks from '../../assets/images/aluraBooks.png'
-import user from '../../assets/images/user.svg'
-import bag from '../../assets/images/bag.svg'
+import { Logo } from './Logo'
+import { Menu } from './Menu'
+import { UserStatus } from './UserStatus'
+import { LoginStatus } from '../../share/Interface/login'
 
-export const Header = () => {
+export const Header = ({login}: LoginStatus) => {
   return (
-    <header className='w-full max-w-[1728px] flex items-center justify-between px-20 py-6 m-auto'>
+    <header className='w-full max-w-[1728px] flex items-center justify-between px-10 tablet:px-20 py-6 m-auto'>
       <div className='flex items-center gap-2'>
-        <img src={logo} alt="Logotipo Alura Books" />
-        <img src={aluraBooks} alt="Alura books" />
-        <div>
-        <ul className='flex items-center gap-4 ml-8'>
-          <li>Categorias</li>
-          <li>Favoritos</li>
-          <li>Minha Estante</li>
-        </ul>
+        <Logo />
+        <Menu login={login}/>
       </div>
-      </div>
-      <div className='flex items-center gap-2'>
-        <div className='flex items-center gap-2'>
-          <img src={bag} alt="Minha Sacola" />
-          <span>Minha Sacola</span>
-        </div>
-        <div className='flex items-center gap-2'>
-          <img src={user} alt="Meu Perfil" />
-          <span>Meu Perfil</span>
-        </div>
-      </div>
+      <UserStatus login={login}/>
     </header>
   )
 }

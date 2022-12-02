@@ -5,9 +5,11 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 
 export function App() {
+  let login = false
+
   return (
     <div className="h-screen flex flex-col items-start gap-4">
-      <Header />
+      <Header login={login} />
       <Button
         // secondary
         // small
