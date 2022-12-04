@@ -3,10 +3,14 @@ import user from '../../../assets/images/user.svg'
 import bag from '../../../assets/images/bag.svg'
 import { LoginStatus } from '../../../share/Interface/login'
 import { Modal } from '../../Modal'
+import { useState } from 'react'
 
 export const UserStatus = ({login}: LoginStatus) => {
+  const [openModal, setOpenModal] = useState(false)
+
   const handleClick = () => {
-    console.log('clickkk')
+    openModal ? setOpenModal(false) : setOpenModal(true)
+    console.log(openModal)
   }
 
   return (
@@ -23,7 +27,7 @@ export const UserStatus = ({login}: LoginStatus) => {
         <img src={user} alt="Meu Perfil" />
         <span className='hidden desktop:block'>{login ? 'Meu Perfil' : 'Login'}</span>
       </div>
-      <Modal />
+      {openModal ? <Modal setOpenModal={setOpenModal} /> : null}
     </div>
   )
 }

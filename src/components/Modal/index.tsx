@@ -4,12 +4,17 @@ import loginClose from '../../assets/images/loginClose.svg'
 import { InputField } from '../InputField'
 import { Button } from '../Button'
 
-export const Modal = () => {
+interface ModalProps {
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Modal = ({setOpenModal}: ModalProps) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  console.log(name)
-  console.log(email)
+ const handleClick = () => {
+  setOpenModal(false)
+ }
 
   return (
     <div className="w-full h-screen flex justify-center items-start bg-gray-600/80 absolute inset-0">
@@ -22,7 +27,12 @@ export const Modal = () => {
         <div className='flex-1'>
           <div className='flex justify-between mb-6'>
             <strong className='font-bold text-lg text-orange-500 leading-6'>Login</strong>
-            <img src={loginClose} alt="Fechar modal" className='w-7 h-7'/>
+            <img 
+              src={loginClose} 
+              alt="Fechar modal" 
+              className='w-7 h-7'
+              onClick={handleClick}
+            />  {/*fechar modal */}
           </div>
           <div className='flex flex-col gap-3 mb-3'>
             <InputField
