@@ -3,17 +3,51 @@ import loginImage from '../../assets/images/loginSignUp.svg'
 import loginClose from '../../assets/images/loginClose.svg'
 import { InputField } from '../InputField'
 import { Button } from '../Button'
+import axios from 'axios'
 
 interface ModalProps {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Modal = ({setOpenModal}: ModalProps) => {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [address, setAddress] = useState('')
+  const [complement, setComplement] = useState('')
+  const [cep, setCep] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [signup, setSignup] = useState(false)
 
- const handleClick = () => {
+ const openModal = () => {
   setOpenModal(false)
+ }
+
+ const SignupSubmit = () => {
+  axios.post('http://localhost:8000/public/registrar', {
+    name,
+    email,
+    address,
+    complement,
+    cep,
+    password
+  })
+  .then(function (response) {
+    console.log(response)
+    alert('cadastrado...')
+    setName('')
+    setEmail('')
+    setAddress('')
+    setComplement('')
+    setCep('')
+    setPassword('')
+    setConfirmPassword('')
+    openModal()
+  })
+  .catch(function (error) {
+    console.log(error)
+  })
+
  }
 
   return (
@@ -31,48 +65,119 @@ export const Modal = ({setOpenModal}: ModalProps) => {
               src={loginClose} 
               alt="Fechar modal" 
               className='w-7 h-7'
-              onClick={handleClick}
+              onClick={openModal}
             />  {/*fechar modal */}
           </div>
+          {!signup ? <div>
+            <div className='flex flex-col gap-3 mb-3'>
+              <InputField
+                inputLabel='E-mail'
+                inputType='email'
+                value={email}
+                placeholder='Digite seu e-mail'
+                onChange={setEmail}
+              />
+              <InputField
+                inputLabel='Senha'
+                inputType='password'
+                value={password}
+                onChange={setPassword}
+                placeholder='° ° ° ° ° ° ° °'
+              />
+            </div>
+            <div className='flex justify-between items-center'>
+              <a 
+                href="#"
+                className='text-xs border-b border-b-black'
+              >
+                  Esqueci minha senha
+                </a>
+              <Button 
+                small
+                handleClick={() => console.log('Login')}
+                >
+                Fazer Login
+              </Button>
+            </div>
+            <div className='my-4 border-b border-b-black'></div>
+            <div className='flex justify-between items-center'>
+              <a 
+                href="#"
+                className='font-bold text-sm'
+              >
+                  Ainda não tem uma conta?
+                </a>
+              <Button 
+                small
+                handleClick={setSignup}
+              >
+                Criar conta
+              </Button>
+            </div>
+          </div>
+          :
           <div className='flex flex-col gap-3 mb-3'>
-            <InputField
-              inputLabel='E-mail'
-              inputType='email'
-              value={email}
-              placeholder='Digite seu e-mail'
-              onChange={setEmail}
+            <InputField 
+              inputLabel='Nome'
+              inputType='text'
+              value={name}
+              placeholder='Digite seu nome'
+              onChange={setName}
             />
-            <InputField
-              inputLabel='Senha'
-              inputType='password'
-              value={password}
-              onChange={setPassword}
-              placeholder='° ° ° ° ° ° ° °'
-            />
-          </div>
-          <div className='flex justify-between items-center'>
-            <a 
-              href="#"
-              className='text-xs border-b border-b-black'
-            >
-                Esqueci minha senha
-              </a>
-            <Button small>
-              Fazer Login
-            </Button>
-          </div>
-          <div className='my-4 border-b border-b-black'></div>
-          <div className='flex justify-between items-center'>
-            <a 
-              href="#"
-              className='font-bold text-sm'
-            >
-                Ainda não tem uma conta?
-              </a>
-            <Button small>
-              Criar conta
-            </Button>
-          </div>
+              <InputField
+                inputLabel='E-mail'
+                inputType='email'
+                value={email}
+                placeholder='Digite seu e-mail'
+                onChange={setEmail}
+              />
+              <InputField
+                inputLabel='Endereço'
+                inputType='text'
+                value={address}
+                placeholder='Digite o nome da rua'
+                onChange={setAddress}
+              />
+              <div className='flex gap-4'>
+                <InputField
+                  inputLabel='Complemento'
+                  inputType='text'
+                  value={complement}
+                  placeholder='Apto/casa, bloco'
+                  onChange={setComplement}
+                  small
+                />
+                <InputField
+                  inputLabel='CEP'
+                  inputType='text'
+                  value={cep}
+                  placeholder='Digite o CEP'
+                  onChange={setCep}
+                  small
+                />
+              </div>
+              <InputField
+                inputLabel='Senha'
+                inputType='password'
+                value={password}
+                onChange={setPassword}
+                placeholder='° ° ° ° ° ° ° °'
+              />
+              <InputField
+                inputLabel='Confirmar senha'
+                inputType='password'
+                value={confirmPassword}
+                onChange={setConfirmPassword}
+                placeholder='° ° ° ° ° ° ° °'
+              />
+              <Button
+                small
+                center
+                handleClick={SignupSubmit}
+              >
+                Cadastrar
+              </Button>
+          </div>}
         </div>
       </div>
     </div>

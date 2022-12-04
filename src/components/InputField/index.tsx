@@ -6,11 +6,12 @@ interface InputFieldProps {
   value: string;
   placeholder?: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
+  small?: boolean;
 }
 
-export const InputField = ({inputLabel, inputType, value, placeholder, onChange}: InputFieldProps) => {
+export const InputField = ({inputLabel, inputType, value, placeholder, onChange, small}: InputFieldProps) => {
   return (
-    <div className="flex flex-col">
+    <div className={`${small && 'w-1/2'} flex flex-col`}>
       <label 
         htmlFor={inputLabel.toLowerCase()}
         className='font-bold text-xs px-5 mb-1'
@@ -24,7 +25,7 @@ export const InputField = ({inputLabel, inputType, value, placeholder, onChange}
           value={value}
           placeholder={placeholder}
           onChange={event => onChange(event.target.value)}
-          className=' placeholder:text-gray-200 placeholder:text-xs outline-none'
+          className={`${small && 'w-1/2'} placeholder:text-gray-200 placeholder:text-xs outline-none`}
         />
         {inputType === 'password' && <img src={showPassword} alt="" />}
       </div>
