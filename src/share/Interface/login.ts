@@ -1,3 +1,3 @@
 export interface LoginStatus {
-  login: boolean;
+  isLoggedIn: boolean;
 }

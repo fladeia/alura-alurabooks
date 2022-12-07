@@ -47,7 +47,23 @@ export const Modal = ({setOpenModal}: ModalProps) => {
   .catch(function (error) {
     console.log(error)
   })
+ }
 
+ const loginSubmit = () => {
+  // event.preventDefault()
+  axios.post('http://localhost:8000/public/login', {
+    email,
+    password
+  })
+  .then((response) => {
+    localStorage.setItem('token', response.data.access_token)
+    openModal()
+    console.log(response)
+  })
+  .catch((error) => {
+    error?.response?.data?.message ? console.log(error.response.data.message) : console.log('Entre em contato com o administrador')
+    console.log(error)
+  })
  }
 
   return (
@@ -94,7 +110,7 @@ export const Modal = ({setOpenModal}: ModalProps) => {
                 </a>
               <Button 
                 small
-                handleClick={() => console.log('Login')}
+                handleClick={loginSubmit}
                 >
                 Fazer Login
               </Button>

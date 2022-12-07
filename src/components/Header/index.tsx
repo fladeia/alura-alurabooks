@@ -3,14 +3,14 @@ import { Menu } from './Menu'
 import { UserStatus } from './UserStatus'
 import { LoginStatus } from '../../share/Interface/login'
 
-export const Header = ({login}: LoginStatus) => {
+export const Header = ({isLoggedIn}: LoginStatus) => {
   return (
     <header className='w-full h-20 max-w-[1728px] flex items-center justify-between px-10 mx-auto tablet:px-20 py-6'>
       <div className='flex items-center gap-2'>
         <Logo />
-        <Menu login={login}/>
+        <Menu isLoggedIn={isLoggedIn}/>
       </div>
-      <UserStatus login={login}/>
+      <UserStatus isLoggedIn={isLoggedIn}/>
     </header>
   )
 }
