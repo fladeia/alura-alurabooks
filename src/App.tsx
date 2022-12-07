@@ -9,9 +9,6 @@ import { Main } from "./components/Main";
 export function App() {
   const token = localStorage.getItem('token')
   const [isLoggedIn, setIsLoggedIn] = useState(token != null)
-  console.log(isLoggedIn)
-
-  let login = false
 
   return (
     <div className="h-screen flex flex-col">

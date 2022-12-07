@@ -13,7 +13,7 @@ interface BookCardProps {
   selectedFavorite: boolean;
 }
 
-export const BookCard = ({bookTitle, bookSynopsis, bookAuthor, bookPrice, selectedBag, selectedFavorite}: BookCardProps) => {
+export const BookCard = ({ bookTitle, bookSynopsis, bookAuthor, bookPrice, selectedBag, selectedFavorite }: BookCardProps) => {
   return (
     <div className='w-full max-w-sm tablet:max-w-3xl desktop:max-w-xl flex flex-col tablet:flex-row justify-between gap-4 p-12 shadow-lg shadow-black/50'>
       <section className='flex-1'>
@@ -29,10 +29,13 @@ export const BookCard = ({bookTitle, bookSynopsis, bookAuthor, bookPrice, select
           <img src={selectedBag ? bagSelected : bag} alt="sacola" />
           <img src={selectedFavorite ? favoriteSelected : favorite} alt="favoritos" />
         </div>
-        <Button small>
+        <Button
+          small
+          handleClick={() => console.log('book card handleClick')}
+        >
           Comprar
         </Button>
       </section>
     </div>
   )
-}  
+}
