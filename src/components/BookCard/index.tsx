@@ -15,7 +15,7 @@ interface BookCardProps {
 
 export const BookCard = ({ bookTitle, bookSynopsis, bookAuthor, bookPrice, selectedBag, selectedFavorite }: BookCardProps) => {
   return (
-    <div className='w-full max-w-sm tablet:max-w-3xl desktop:max-w-xl flex flex-col tablet:flex-row justify-between gap-4 p-12 shadow-lg shadow-black/50'>
+    <div className='w-full max-w-sm bg-white m-auto rounded-xl tablet:max-w-3xl desktop:max-w-xl flex flex-col tablet:flex-row justify-between gap-4 p-12 shadow-lg shadow-black/50'>
       <section className='flex-1'>
         <h4 className='font-bold text-base leading-6 desktop:text-3xl desktop:leading-[48px] text-orange-500 mb-4'>Sobre o livro:</h4>
         <h5 className='font-bold text-lg leading-7 text-blue-700 mb-6'>{bookTitle}</h5>
