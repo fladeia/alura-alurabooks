@@ -30,4 +30,15 @@ body {
   footer span {
     @apply text-gray-700 text-sm;
   }
+
+  .account-menu ul li {
+    @apply border-b border-blue-700 py-4 text-blue-700;
+  }
+
+  .order ul li {
+    @apply leading-6;
+  }
+  .order ul li span {
+    @apply font-bold;
+  }
 }
