@@ -4,6 +4,7 @@ import bag from '../../../assets/images/bag.svg'
 import { LoginStatus } from '../../../share/Interface/login'
 import { Modal } from '../../Modal'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const UserStatus = ({isLoggedIn}: LoginStatus) => {
   const [openModal, setOpenModal] = useState(false)
@@ -12,11 +13,21 @@ export const UserStatus = ({isLoggedIn}: LoginStatus) => {
     openModal ? setOpenModal(false) : setOpenModal(true)
   }
 
+  const handleBag = () => {
+    console.log('bag')
+  }
+
   return (
     <div className='flex items-center gap-4 tablet:gap-14 desktop:gap-4'>
       <img src={favorite} alt="Favoritos" className='block tablet:hidden' />
       <div className={`flex items-center gap-2  tablet:${!isLoggedIn && 'hidden'}`}>
-        <img src={bag} alt="Minha Sacola" />
+        <Link to='/account'>
+          <img 
+            src={bag} 
+            alt="Minha Sacola"
+            onClick={handleBag}
+          />
+        </Link>
         <span className='hidden desktop:block'>Minha Sacola</span>
       </div>
       <div

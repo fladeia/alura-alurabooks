@@ -3,7 +3,6 @@ import { Router } from "./routes";
 export function App() {
   return (
     <div className="h-screen flex flex-col">
-
       <Router />
     </div>
   )

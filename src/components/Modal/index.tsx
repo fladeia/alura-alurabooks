@@ -67,7 +67,7 @@ export const Modal = ({setOpenModal}: ModalProps) => {
  }
 
   return (
-    <div className="w-full h-screen flex justify-center items-start bg-gray-600/80 absolute inset-0">
+    <div className="w-full h-screen flex justify-center items-start bg-gray-600/80 fixed inset-0">
       <div className="w-[90%] tablet:flex tablet:w-[85%] desktop:w-[60%] mt-36 p-6 bg-white rounded-2xl">
         <div className='flex justify-center items-center mb-6 mr-6'>
           <figure className='w-56 desktop:w-80' >
