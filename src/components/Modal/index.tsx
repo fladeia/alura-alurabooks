@@ -3,7 +3,7 @@ import loginImage from '../../assets/images/loginSignUp.svg'
 import loginClose from '../../assets/images/loginClose.svg'
 import { InputField } from '../InputField'
 import { Button } from '../Button'
-import axios from 'axios'
+import { http } from '../../http'
 
 interface ModalProps {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -24,7 +24,7 @@ export const Modal = ({setOpenModal}: ModalProps) => {
  }
 
  const SignupSubmit = () => {
-  axios.post('http://localhost:8000/public/registrar', {
+  http.post('/public/registrar', {
     name,
     email,
     address,
@@ -51,7 +51,7 @@ export const Modal = ({setOpenModal}: ModalProps) => {
 
  const loginSubmit = () => {
   // event.preventDefault()
-  axios.post('http://localhost:8000/public/login', {
+  http.post('/public/login', {
     email,
     password
   })
@@ -67,7 +67,7 @@ export const Modal = ({setOpenModal}: ModalProps) => {
  }
 
   return (
-    <div className="w-full h-screen flex justify-center items-start bg-gray-600/80 fixed inset-0">
+    <div className="w-full h-screen flex justify-center items-start bg-gray-600/80 absolute inset-0">
       <div className="w-[90%] tablet:flex tablet:w-[85%] desktop:w-[60%] mt-36 p-6 bg-white rounded-2xl">
         <div className='flex justify-center items-center mb-6 mr-6'>
           <figure className='w-56 desktop:w-80' >

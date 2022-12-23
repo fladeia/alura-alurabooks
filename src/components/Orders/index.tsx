@@ -1,7 +1,23 @@
+import axios from "axios"
+import { useEffect } from "react"
 import { Outlet } from "react-router-dom"
+import { http } from "../../http"
 import { Button } from "../Button"
 
 export const Orders = () => {
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    
+    axios.get('http://localhost:8000/pedidos', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
+  },[])
+
   return (
     <section className="flex flex-col px-4 mb-6">
       <div className="order mb-5">
