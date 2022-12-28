@@ -1,5 +1,5 @@
-export interface ILastReleases {
-  autor: number;
+export interface IHighlightsBooks {
+  autor: string;
   categoria: number;
   descricao: string;
   id: number;

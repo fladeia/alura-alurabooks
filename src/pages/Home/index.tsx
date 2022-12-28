@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { Main } from "../../components/Main";
-import { LastReleases } from "../../components/LastReleases";
-import { BestSeller } from "../../components/BestSeller";
+import { HighlightsBooks } from "../../components/HighlightsBooks";
 import { Visited } from "../../components/Visited";
 import { NewsLetter } from "../../components/NewsLetter";
-import { ILastReleases } from "../../share/Interface/ILastReleases";
+import { IHighlightsBooks } from "../../share/Interface/IHighlightsBooks";
 import { http } from "../../http";
 
 export const Home = () => {
-  const [lastReleases, setLastReleases] = useState<ILastReleases[]>([])
-  const [bestSellers, setBestSellers] = useState<ILastReleases[]>([])
+  const [lastReleases, setLastReleases] = useState<IHighlightsBooks[]>([])
+  const [bestSellers, setBestSellers] = useState<IHighlightsBooks[]>([])
 
   useEffect(() => {
     http.get('/public/lancamentos')
@@ -18,12 +17,12 @@ export const Home = () => {
     http.get('/public/mais-vendidos')
     .then(response => setBestSellers(response.data))
   },[])
-  
+
   return (
     <>
       <Main />
-      <LastReleases lastReleases={lastReleases}/>
-      <BestSeller bestSellers={bestSellers}/>
+      <HighlightsBooks highlightsBooks={lastReleases}/>
+      <HighlightsBooks highlightsBooks={bestSellers}/>
       <Visited />
       <NewsLetter />
     </>

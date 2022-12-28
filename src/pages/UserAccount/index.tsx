@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import { LastReleases } from "../../components/LastReleases"
+import { LastReleases } from "../../components/HighlightsBooks"
 import { UserAccountMenu } from "../../components/UserAccountMenu"
 
 export const UserAccount = () => {
