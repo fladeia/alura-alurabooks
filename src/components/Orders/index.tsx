@@ -1,20 +1,21 @@
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
 import { http } from "../../http"
+import { IOrders } from "../../share/Interface/IOrders"
 import { Button } from "../Button"
+import { token } from "../../utils/token"
 
 export const Orders = () => {
+  const [orders, setOrders] = useState<IOrders[]>([])
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    
     axios.get('http://localhost:8000/pedidos', {
       headers: {
         'Authorization': `Bearer ${token}`
       }
     })
-      .then(response => console.log(response))
+      .then(response => setOrders(response.data))
       .catch(error => console.log(error))
   },[])
 
@@ -22,22 +23,28 @@ export const Orders = () => {
     <section className="flex flex-col px-4 mb-6">
       <div className="order mb-5">
         <h4 className="font-bold text-lg leading-7 mb-7">Pedido</h4>
-         <span className="block font-bold leading-6 mb-4">Resumo da Compra</span>
-         <ul>
-          <li>Pedido: <span>89019041</span></li>
-          <li>Data do Pedido: <span>26/05/2022</span></li>
-          <li>Valor total: <span>48,00</span></li>
-          <li>Entrega realizada em: <span>30/05/2022</span></li>
-         </ul>
+          {
+            orders.map(order => (
+              <div key={order.id} className="mb-6 pb-6 border-b border-black">
+                <span className="block font-bold leading-6 mb-4">Resumo da Compra</span>
+                <ul className="mb-4">
+                  <li>Pedido: <span>{order.id}</span></li>
+                  <li>Data do Pedido: <span>{new Date(order.data).toLocaleDateString()}</span></li>
+                  <li>Valor total: <span>{new Intl.NumberFormat('pt-BR', {style: 'currency', currency:'BRL'}).format(order.total)}</span></li>
+                  <li>Entrega realizada em: <span>{new Date(order.entrega).toLocaleDateString()}</span></li>
+                </ul>
+                <Button 
+                  small
+                  center
+                  full
+                  handleClick={() => console.log('Detalhe do pedido')}
+                >
+                  Detalhe
+                </Button>
+              </div>
+            ))
+          }
       </div>
-      <Button 
-        small
-        center
-        full
-        handleClick={() => console.log('Detalhe do pedido')}
-      >
-        Detalhe
-      </Button>
     </section>
   )
 }

@@ -9,7 +9,7 @@ export const Layout = () => {
   
   return (
     <>
-      <Header isLoggedIn={isLoggedIn} />
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Outlet />
       <Footer />
     </>

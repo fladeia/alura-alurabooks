@@ -1,5 +1,4 @@
-import bag from '../../assets/images/bag.svg'
-import favorite from '../../assets/images/favorite.svg'
+import { Bag, HeartStraight } from 'phosphor-react'
 import bagSelected from '../../assets/images/bagSelected.svg'
 import favoriteSelected from '../../assets/images/favoriteSelected.svg'
 import { Button } from '../Button'
@@ -26,8 +25,8 @@ export const BookCard = ({ bookTitle, bookSynopsis, bookAuthor, bookPrice, selec
       </section>
       <section className='flex tablet:flex-col justify-between'>
         <div className='flex gap-4 justify-end'>
-          <img src={selectedBag ? bagSelected : bag} alt="sacola" />
-          <img src={selectedFavorite ? favoriteSelected : favorite} alt="favoritos" />
+          <Bag size={32} />
+          <HeartStraight size={32} />
         </div>
         <Button
           small

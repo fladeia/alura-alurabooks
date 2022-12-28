@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export const Logo = () => {
   return (
-    <Link to='/'>
+    <Link to='/' className='tablet:flex tablet:items-center tablet:gap-2'>
       <img 
         src={logo} 
         alt="Logotipo Alura Books" 

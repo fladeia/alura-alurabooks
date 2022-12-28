@@ -1,6 +1,6 @@
 import { LoginStatus } from '../../../share/Interface/login'
 
-export const Menu = ({isLoggedIn}: LoginStatus) => {
+export const Menu = ({isLoggedIn, setIsLoggedIn}: LoginStatus) => {
   return (
     <div className="hidden tablet:block">
       <ul className='flex items-center gap-4 ml-8'>

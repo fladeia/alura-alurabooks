@@ -5,6 +5,7 @@ import { Visited } from "../../components/Visited";
 import { NewsLetter } from "../../components/NewsLetter";
 import { IHighlightsBooks } from "../../share/Interface/IHighlightsBooks";
 import { http } from "../../http";
+import { Loading } from "../../components/Loading/Index";
 
 export const Home = () => {
   const [lastReleases, setLastReleases] = useState<IHighlightsBooks[]>([])
@@ -21,8 +22,8 @@ export const Home = () => {
   return (
     <>
       <Main />
-      <HighlightsBooks highlightsBooks={lastReleases}/>
-      <HighlightsBooks highlightsBooks={bestSellers}/>
+      {lastReleases.length === 0 ? <Loading /> : <HighlightsBooks highlightsBooks={lastReleases}/>}
+      {bestSellers.length === 0 ? <Loading /> : <HighlightsBooks highlightsBooks={bestSellers}/>}
       <Visited />
       <NewsLetter />
     </>
